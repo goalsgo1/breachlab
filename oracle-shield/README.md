@@ -2,7 +2,7 @@
 
 Reproduces the attack pattern from the **Tectonic hack (2026-08-30, Cronos)** — pumping a token's price ~100x in ~20 minutes to borrow far more than it's actually worth — and the code that stops it.
 
-**[Live interactive demo →](https://breachlab-5xg.pages.dev/demo/kit2.html)**
+**[Live interactive demo →](https://breachlab-5xg.pages.dev/en/demo/kit2.html)**
 
 ## What happened
 

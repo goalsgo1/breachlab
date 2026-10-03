@@ -2,7 +2,7 @@
 
 Every time a real crypto security incident happens, I reproduce the attack pattern and publish the code that would have stopped it. Free.
 
-**[Live site & catalog →](https://breachlab-5xg.pages.dev)**
+**[Live site & catalog →](https://breachlab-5xg.pages.dev/en/)**
 
 ## Rule for what gets added here
 

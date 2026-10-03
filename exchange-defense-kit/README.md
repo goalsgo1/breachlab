@@ -2,7 +2,7 @@
 
 Reproduces the attack pattern from the **Bitget hack (2026-09-24, $387.5M)** and the code that stops it: a minimal price-time priority matching engine, plus a withdrawal-fraud guard.
 
-**[Live interactive demo →](https://breachlab-5xg.pages.dev/demo/kit1.html)**
+**[Live interactive demo →](https://breachlab-5xg.pages.dev/en/demo/kit1.html)**
 
 ## What happened
 
