@@ -17,7 +17,7 @@ A new incident becomes a repo here only if it passes all three:
 |---|---|---|
 | [exchange-defense-kit](./exchange-defense-kit) | Bitget hack — $387.5M, 2026-09-24 (compromised admin backend → forged withdrawals) | Medium |
 | [oracle-shield](./oracle-shield) | Tectonic hack — Cronos, 2026-08-30 (price pump → over-collateralized borrow) | Medium |
-| [auth-bypass-guard](./auth-bypass-guard) | Shinhan Bank incident — South Korea, 2026-10-01 (identity-verification bypass → IDOR data leak) | Easy |
+| [auth-bypass-guard](./auth-bypass-guard) | Shinhan Bank incident — South Korea, 2026-10-01 (identity-verification bypass → IDOR data leak) — also verified against the real ARTEX AI pentesting agent | Easy |
 | [supply-chain-guard](./supply-chain-guard) | "Korean Leaks" campaign — GJTec/Qilin ransomware, 2025-11 (one compromised MSP credential → 28 institutions breached) | Medium |
 
 More are planned: bridge message forgery, flash loan attacks, reentrancy, MEV front-running, credential stuffing, and more — tracked against real incidents as they happen.

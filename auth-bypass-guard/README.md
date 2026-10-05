@@ -17,6 +17,19 @@ The underlying vulnerability class, regardless of how it was found, is a textboo
 
 The demo runs a simulated bypass attempt against both: one leaks every record requested, the other blocks every one of them and logs the attempt.
 
+## Verified against a real AI pentesting agent
+
+The demo above shows one defense mechanism in isolation. Separately, a deeper 4-layer version of this defense was tested in a network-isolated Docker sandbox against **ARTEX** itself — the actual open-source autonomous AI pentesting agent (github.com/Autumn-27/ARTEX) linked to the Shinhan Bank incident — with no access to any real infrastructure, synthetic data only:
+
+1. **Per-identity violation tracking** (not per-token) — re-authenticating for a fresh session token doesn't reset the count
+2. **Cross-identity source correlation** — once one source has caused violations under more than one identity, that source is blocked outright, closing the "get blocked, log back in as someone else" evasion
+3. **Velocity/breadth logging** — informational, not used to block, since speed alone is an unreliable signal against a patient attacker
+4. **An Isolation Forest anomaly model** (self-contained, no external ML dependency) as a general safety net for patterns none of the above specifically target — e.g. a single identity querying its own record at inhuman speed, which isn't an authorization violation but isn't normal either
+
+Both ARTEX and a plain scripted scanner (no AI involved) were run against this, to confirm the defense catches the underlying *mechanism*, not just one tool's attack style. Neither exfiltrated beyond the deliberately-permissive threshold built into the test target.
+
+**Known gaps, stated plainly:** cross-institution/distributed attacks are out of scope (a shared detection hub would introduce its own single-point-of-failure risk); the detection logic's own implementation hasn't been adversarially tested for bugs; and no finite test can prove resistance to attack techniques that don't exist yet. Detection is a supporting layer — the actual fix is `session-bound-guard.js` denying any ownership mismatch outright, from the first attempt.
+
 ## Not production-ready
 
 Real identity-verification systems layer session management, rate limiting, and anomaly detection on top of this. This demonstrates one defense mechanism in isolation, not a deployable system.
