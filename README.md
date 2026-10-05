@@ -6,10 +6,23 @@ Every time a real security incident hits crypto exchanges or fintech/banking pla
 
 ## Rule for what gets added here
 
-A new incident becomes a repo here only if it passes all three:
-1. **Mechanism clarity** — the attack can be explained in 3 steps or fewer
-2. **Safe reproducibility** — it can be simulated with fake data, never a working exploit
-3. **Relevance** — it's an actively discussed, real incident
+Two tracks feed this repo, run side by side:
+
+- **Track A — breaking incidents** (no cap): a new incident becomes a repo
+  here as soon as it passes all three — **mechanism clarity** (explainable
+  in 3 steps or fewer), **safe reproducibility** (fake data only, never a
+  working exploit), and **relevance** (an actively discussed, real
+  incident).
+- **Track B — historical incidents** (paced to actual build capacity, not
+  stockpiled): same mechanism-clarity and safe-reproducibility bar, but
+  "relevance" is swapped for **canonical status** — is this incident the
+  textbook example people already cite for this attack class (e.g. the
+  Bangladesh Bank SWIFT heist for stolen-credential forgery)?
+
+Every product, from either track, is also cross-validated against at least
+one real, popular open-source pentesting tool (hydra, mitmproxy-style
+capture/replay, etc.) before it's published here — see each folder's
+README for the exact command and result.
 
 ## Products so far
 
@@ -19,8 +32,13 @@ A new incident becomes a repo here only if it passes all three:
 | [oracle-shield](./oracle-shield) | Tectonic hack — Cronos, 2026-08-30 (price pump → over-collateralized borrow) | Medium |
 | [auth-bypass-guard](./auth-bypass-guard) | Shinhan Bank incident — South Korea, 2026-10-01 (identity-verification bypass → IDOR data leak) — also verified against the real ARTEX AI pentesting agent | Easy |
 | [supply-chain-guard](./supply-chain-guard) | "Korean Leaks" campaign — GJTec/Qilin ransomware, 2025-11 (one compromised MSP credential → 28 institutions breached) | Medium |
+| [credential-shield](./credential-shield) | Credential stuffing (general technique) — verified with hydra | Easy |
+| [replay-guard](./replay-guard) | Replay attacks (general technique) — verified by capture-and-replay | Easy |
+| [atm-cashout-guard](./atm-cashout-guard) | Prepaid-card processor hack — $45M, 2013-02 (TOCTOU race condition → withdrawal-limit bypass) | Hard |
+| [card-testing-guard](./card-testing-guard) | Card testing / BIN attacks (general technique) — verified with hydra | Easy |
+| [swift-forgery-guard](./swift-forgery-guard) | Bangladesh Bank SWIFT heist — $81M, 2016-02-04 (stolen static credential → forged transfer messages) | Hard |
 
-More are planned: bridge message forgery, flash loan attacks, reentrancy, MEV front-running, credential stuffing, and more — tracked against real incidents as they happen.
+More are planned: bridge message forgery, flash loan attacks, reentrancy, MEV front-running, SIM swapping, address poisoning, and more — tracked against real and canonical incidents as they happen.
 
 ## Why this exists
 
