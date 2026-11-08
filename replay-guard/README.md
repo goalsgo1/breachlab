@@ -39,9 +39,11 @@ Tested directly: a legitimate transfer request was signed once, then sent
 
 ## Not production-ready
 
-Nonces live in a single in-memory `Set` here — a real system needs a
-storage layer safe across distributed instances, plus an expiry policy.
-This demonstrates one defense mechanism in isolation, not a deployable
+Nonces live in a single in-memory `Map` here — a real system needs a
+storage layer safe across distributed instances. Requests older than
+`ttlMs` (default 60 s) are rejected as `expired` and their nonces are
+pruned, but there is no background sweep or clock-skew handling. This
+demonstrates one defense mechanism in isolation, not a deployable
 system.
 
 ---
